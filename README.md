@@ -30,8 +30,6 @@ For **React 0.13.x**, use version 0.1.x:
 npm install react-notification-system@0.1.x
 ```
 
-
-
 ## Using
 
 For optimal appearance, this component **must be rendered on a top level HTML element** in your application to avoid position conflicts.
@@ -39,9 +37,9 @@ For optimal appearance, this component **must be rendered on a top level HTML el
 Here is a basic example. For a more advanced usage, please see the [example code](https://github.com/igorprado/react-notification-system/blob/master/example/src/scripts/App.jsx).
 
 ```js
-var React = require('react');
-var ReactDOM = require('react-dom');
-var NotificationSystem = require('react-notification-system');
+var React = require("react");
+var ReactDOM = require("react-dom");
+var NotificationSystem = require("react-notification-system");
 
 var MyComponent = React.createClass({
   _notificationSystem: null,
@@ -49,8 +47,8 @@ var MyComponent = React.createClass({
   _addNotification: function(event) {
     event.preventDefault();
     this._notificationSystem.addNotification({
-      message: 'Notification message',
-      level: 'success'
+      message: "Notification message",
+      level: "success"
     });
   },
 
@@ -64,13 +62,13 @@ var MyComponent = React.createClass({
         <button onClick={this._addNotification}>Add notification</button>
         <NotificationSystem ref="notificationSystem" />
       </div>
-      );
+    );
   }
 });
 
 ReactDOM.render(
   React.createElement(MyComponent),
-  document.getElementById('app')
+  document.getElementById("app")
 );
 ```
 
@@ -86,11 +84,9 @@ Returns the notification object to be used to programmatically dismiss a notific
 
 Remove a notification programmatically. You can pass an object returned by `addNotification()` or by `onAdd()` callback. If passing an object, you need to make sure it must contain the `uid` property. You can pass only the `uid` too: `removeNotification(uid)`.
 
-
 ### `editNotification(notification, newProperties)`
 
 Edit a notification programmatically. You can pass an object previously returned by `addNotification()` or by `onAdd()` callback as `notification`. If passing an object as `notification`, you need to make sure it must contain the `uid` property. You can pass only the `uid` too: `editNotification(uid, newProperties)`.
-
 
 ### `clearNotifications()`
 
@@ -100,20 +96,20 @@ Removes ALL notifications programatically.
 
 The notification object has the following properties:
 
-| Name         | Type            | Default   | Description                                                                                                                                                               |
-|------------  |---------------  |---------  |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
-| title        | string          | null      | Title of the notification                                                                                                                                                 |
-| message      | string          | null      | Message of the notification                                                                                                                                              |
-| level        | string          | null      | Level of the notification. Available: **success**, **error**, **warning** and **info**                                                                                    |
-| position     | string          | tr        | Position of the notification. Available: **tr (top right)**, **tl (top left)**, **tc (top center)**, **br (bottom right)**, **bl (bottom left)**, **bc (bottom center)**  |
-| autoDismiss  | integer         | 5         | Delay in seconds for the notification go away. Set this to **0** to not auto-dismiss the notification                                                                      |
-| dismissible  | string          | both      | Settings controlling how the user can dismiss the notification and whether the dismiss button is visible. Available: **both (The disable button is visible and the user can click anywhere on the notification to dismiss)**, **click (The disable button is NOT visible and the user can click anywhere on the notification to dismiss)**, **button (The user can click on the disable button to dismiss the notifiction)**, **none (None [See more](#dismissible))**                                                                                                  |
-| action       | object          | null      | Add a button with label and callback function (callback is optional). [See more](#action)                                                                                                        |
-| children       | element,string          | null      | Adds custom content, and overrides `action` (if defined) [See more](#children)                                                                                                        |
-| onAdd | function | null | A callback function that will be called when the notification is successfully added. The first argument is the original notification e.g. `function (notification) { console.log(notification.title + 'was added'); }` |
-| onRemove     | function        | null      | A callback function that will be called when the notification is about to be removed. The first argument is the original notification e.g. `function (notification) { console.log(notification.title + 'was removed'); }` |
-| uid          | integer/string           | null      | Overrides the internal `uid`. Useful if you are managing your notifications id. Notifications with same `uid` won't be displayed. |
-
+| Name        | Type           | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------- | -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title       | string         | null    | Title of the notification                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| message     | string         | null    | Message of the notification                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| level       | string         | null    | Level of the notification. Available: **success**, **error**, **warning** and **info**                                                                                                                                                                                                                                                                                                                                                                                 |
+| position    | string         | tr      | Position of the notification. Available: **tr (top right)**, **tl (top left)**, **tc (top center)**, **br (bottom right)**, **bl (bottom left)**, **bc (bottom center)**                                                                                                                                                                                                                                                                                               |
+| autoDismiss | integer        | 5       | Delay in seconds for the notification go away. Set this to **0** to not auto-dismiss the notification                                                                                                                                                                                                                                                                                                                                                                  |
+| dismissible | string         | both    | Settings controlling how the user can dismiss the notification and whether the dismiss button is visible. Available: **both (The disable button is visible and the user can click anywhere on the notification to dismiss)**, **click (The disable button is NOT visible and the user can click anywhere on the notification to dismiss)**, **button (The user can click on the disable button to dismiss the notifiction)**, **none (None [See more](#dismissible))** |
+| action      | object         | null    | Add a button with label and callback function (callback is optional). [See more](#action)                                                                                                                                                                                                                                                                                                                                                                              |
+| children    | element,string | null    | Adds custom content, and overrides `action` (if defined) [See more](#children)                                                                                                                                                                                                                                                                                                                                                                                         |
+| onAdd       | function       | null    | A callback function that will be called when the notification is successfully added. The first argument is the original notification e.g. `function (notification) { console.log(notification.title + 'was added'); }`                                                                                                                                                                                                                                                 |
+| onRemove    | function       | null    | A callback function that will be called when the notification is about to be removed. The first argument is the original notification e.g. `function (notification) { console.log(notification.title + 'was removed'); }`                                                                                                                                                                                                                                              |
+| uid         | integer/string | null    | Overrides the internal `uid`. Useful if you are managing your notifications id. Notifications with same `uid` won't be displayed.                                                                                                                                                                                                                                                                                                                                      |
+| hidden      | boolean        | false   | Whether to display the notification or not. It is used for generating notifications for screen readers only (eg: page navigation, fetching data messages, any kind of notification that does not need to be seen by any sighted person)                                                                                                                                                                                                                                |
 
 ### Dismissible
 
@@ -133,7 +129,6 @@ notification = {
     }
   }
 }
-
 ```
 
 ### Children
@@ -150,7 +145,6 @@ notification = {
     </div>
   )
 }
-
 ```
 
 ## Styles
@@ -177,7 +171,6 @@ var style = {
 }
 
 <NotificationSystem ref="notificationSystem" style={style} />
-
 ```
 
 Refer to [this file](https://github.com/igorprado/react-notification-system/blob/master/src/styles.js) to see what can you override.
@@ -205,7 +198,6 @@ Here is the notification HTML:
     </div>
   </div>
 </div>
-
 ```
 
 #### Important
@@ -220,8 +212,8 @@ See [#74](https://github.com/igorprado/react-notification-system/issues/74) for 
 
 ## Roadmap
 
-* Improve tests and coverage
-* Improve performance
+- Improve tests and coverage
+- Improve performance
 
 ## Contributions
 
