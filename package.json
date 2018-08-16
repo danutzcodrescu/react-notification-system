@@ -1,7 +1,7 @@
 {
   "name": "react-notification-system",
-  "version": "0.2.17",
-  "description": "A React Notification System fully customized",
+  "version": "0.3.0",
+  "description": "A React Notification System fully customized with accesibility in mind",
   "main": "dist/NotificationSystem.js",
   "scripts": {
     "test": "karma start --single-run",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/igorprado/react-notification-system"
+    "url": "https://github.com/danutzcodrescu/react-notification-system"
   },
   "keywords": [
     "react",
@@ -23,14 +23,15 @@
     "notification system",
     "component",
     "react component",
-    "react-component"
+    "react-component",
+    "accesibility"
   ],
-  "author": "Igor Prado",
+  "author": "Igor Prado, Danut Codrescu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/igorprado/react-notification-system/issues"
+    "url": "https://github.com/danutzcodrescu/react-notification-system/issues"
   },
-  "homepage": "https://github.com/igorprado/react-notification-system",
+  "homepage": "https://github.com/danutzcodrescu/react-notification-system",
   "dependencies": {
     "create-react-class": "^15.5.1",
     "object-assign": "^4.0.1",
