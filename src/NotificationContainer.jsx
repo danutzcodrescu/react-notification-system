@@ -12,7 +12,8 @@ var NotificationContainer = createReactClass({
     getStyles: PropTypes.object
   },
 
-  _style: {},
+  _style: {
+  },
 
   componentWillMount: function() {
     // Fix position if width is overrided
@@ -32,9 +33,12 @@ var NotificationContainer = createReactClass({
     }
 
     notifications = this.props.notifications.map(function(notification) {
+      if (!notification.hidden) {
+        notification.hidden = false;
+      }
       return (
         <NotificationItem
-          ref={ 'notification-' + notification.uid }
+          // ref={ 'notification-' + notification.uid }
           key={ notification.uid }
           notification={ notification }
           getStyles={ self.props.getStyles }

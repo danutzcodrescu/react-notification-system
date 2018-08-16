@@ -22,8 +22,8 @@ var NotificationSystem = createReactClass({
     },
 
     wrapper: function() {
-      if (!this.overrideStyle) return {};
-      return merge({}, Styles.Wrapper, this.overrideStyle.Wrapper);
+      if (!this.overrideStyle) return { };
+      return merge({ }, Styles.Wrapper, this.overrideStyle.Wrapper);
     },
 
     container: function(position) {
@@ -249,7 +249,7 @@ var NotificationSystem = createReactClass({
 
         return (
           <NotificationContainer
-            ref={ 'container-' + position }
+            // ref={ 'container-' + position }
             key={ position }
             position={ position }
             notifications={ _notifications }
