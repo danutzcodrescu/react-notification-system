@@ -6,10 +6,7 @@
     "es6": true,
     "mocha": true
   },
-  "plugins": [
-    "react",
-    "import"
-  ],
+  "plugins": ["react", "import"],
   "parserOptions": {
     "ecmaFeatures": {
       "modules": true,
@@ -48,6 +45,7 @@
     "no-console": 0,
     "no-throw-literal": 0,
     "id-length": 0,
-    "max-len": 0
+    "max-len": 0,
+    "linebreak-style": "off"
   }
 }
